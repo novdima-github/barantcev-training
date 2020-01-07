@@ -18,6 +18,15 @@ class Restaurant():
         self.number_served += number_served
         print(f"number of served visitors incremented on {number_served}")
 
+class IceCreamStand(Restaurant):
+    def __init__(self, rest_name, rest_cuisine):
+        super().__init__(rest_name, rest_cuisine)
+        self.flavors = ['icecream1', 'icecream2', 'icecrea3']
+
+    def show_icecreams(self):
+        print('Stand icecreams: ' + str(self.flavors))
+
+
 restaurant = Restaurant("Vasilek", 'Rus')
 restaurant.describe_restaurant()
 print(restaurant.number_served)
@@ -53,6 +62,42 @@ class User():
     def greet_user(self):
         print(f'Hello {self.fn} {self.ln}')
 
+class Admin(User):
+    def __init__(self, fn, ln, age):
+        super().__init__(fn, ln, age)
+        self.priviliges = AdminPriviliges()
+
+    def show_priviliges(self):
+        print(self.fn + ' ' + self.ln + " has the next priviliges: " + str(self.priviliges.admin_priviliges))
+
+
+class Client(User):
+    def __init__(self, fn, ln, age):
+        super().__init__(fn, ln, age)
+        self.priviliges = ClientPriviliges()
+
+    def show_priviliges(self):
+        print(self.fn + ' ' + self.ln + " has the next priviliges: " + str(self.priviliges.client_priviliges))
+
+
+class AdminPriviliges():
+    def __init__(self):
+        self.admin_priviliges = ["разрешено добавлять сообщения", "«разрешено удалять пользователей»",
+                           "«разрешено банить пользователей»"]
+
+
+class ClientPriviliges():
+    def __init__(self):
+        self.client_priviliges = ["Client prvilige 1", "Client prvilige 3",
+                           "Client prvilige 2"]
+
+    def show_priviliges(self):
+        print("This user has the next priviliges: " + str(self.client_priviliges))
+
+
+
+
+
 me = User('dima', 'nov', 35)
 me.describe_user()
 me.greet_user()
@@ -67,3 +112,13 @@ jake.show_login_attempts()
 jake.reset_login_attempts()
 print(jake.login_attempt)
 jake.show_login_attempts()
+
+my_stand = IceCreamStand('Stand_1', 'Minsk')
+print(my_stand.flavors)
+my_stand.show_icecreams()
+admin = Admin('Igor', 'Ivanov', 23)
+admin.show_priviliges()
+
+client = Client('Bob', 'Marley', 38)
+client.show_priviliges()
+client.priviliges.show_priviliges()
