@@ -31,6 +31,9 @@ class Battery():
     def __init__(self, battery_size=70):
         self.battery_size = battery_size
 
+    def show_battery_charge(self):
+        print('Charge battery is ' + str(self.battery_size))
+
     def get_range(self):
         if self.battery_size ==70:
             range = 250
@@ -42,6 +45,13 @@ class Battery():
             print(message)
         else:
             print("Underfined")
+
+    def update_battery(self):
+        if self.battery_size !=85:
+            self.battery_size = 85
+            print("Battery charged")
+        else:
+            print("Battery full")
 
 
 class ElectricCar(Car):
@@ -73,3 +83,6 @@ my_tesla.describe_battery()
 my_tesla.class_identification()
 my_car.class_identification()
 my_tesla.battery.get_range()
+my_tesla.battery.show_battery_charge()
+my_tesla.battery.update_battery()
+my_tesla.battery.show_battery_charge()
