@@ -7,8 +7,7 @@ user_hobby = input()
 
 try:
     with open(f_users) as f_obj:
-        lines = f_obj.readlines()
-        last_string = lines[len(lines) - 1]
+        last_string = f_obj.readlines()[-1]
         id = int(last_string.split()[0])
         with open(f_users, 'a') as f_obj:
             f_obj.write(str(id + 1) + ' Name: ' + user_name.title() + ' Hobby: ' + user_hobby.title() + '\n')
