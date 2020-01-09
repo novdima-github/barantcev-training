@@ -14,4 +14,6 @@ try:
 except:
     with open(f_users, 'w') as f_obj:
         f_obj.write(str(1) + ' Name: ' + user_name.title() + ' Hobby: ' + user_hobby.title() + '\n')
-
+else:
+    print('Your info saved successfully!')
+    
