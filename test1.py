@@ -1,5 +1,4 @@
 # "f:/Дима/tmp/chromedriver.exe"
-import pytest
 import unittest
 import time
 from selenium import webdriver
