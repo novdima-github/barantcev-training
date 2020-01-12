@@ -1,5 +1,4 @@
 from selenium import webdriver
-from login_class import Login
 
 class Application:
 
@@ -9,16 +8,15 @@ class Application:
         self.driver.implicitly_wait(10)
         self.driver.maximize_window()
         self.visit_login_page()
-        self.login_to_feefo(Login('testmailnd@gmail.com', 'Dima!qa2ws1'))
 
     def visit_login_page(self):
         driver = self.driver
         driver.get('https://hub.feefo.com/login')
 
-    def login_to_feefo(self, login):
+    def login_to_feefo(self, email, password):
         driver = self.driver
-        driver.find_element_by_name('email').send_keys(login.email)
-        driver.find_element_by_name('password').send_keys(login.password)
+        driver.find_element_by_name('email').send_keys(email)
+        driver.find_element_by_name('password').send_keys(password)
         driver.find_element_by_css_selector("button[type='submit']").click()
 
     def check_menu_items(self):
@@ -42,5 +40,4 @@ class Application:
         driver.find_element_by_partial_link_text('Log Out').click()
 
     def destroy(self):
-        self.log_out()
         self.driver.quit()
