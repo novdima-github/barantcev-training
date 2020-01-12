@@ -1,12 +1,4 @@
-import pytest
 from model.sale_class import Sale
-from fixture.application import Application
-
-@pytest.fixture() # scope="session"
-def app(request):
-    fixture = Application()
-    request.addfinalizer(fixture.destroy)
-    return fixture
 
 def test_check_menu_items(app):
     app.session.login_to_feefo('testmailnd@gmail.com', 'Dima!qa2ws1')
