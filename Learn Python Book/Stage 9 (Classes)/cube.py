@@ -1,4 +1,4 @@
-class Die():
+class Die:
     def __init__(self, sides = 6):
         self.sides = sides
 
@@ -7,6 +7,6 @@ class Die():
         x = randint(1, self.sides)
         print(str(x))
 
-my_die = Die(10)
+my_die = Die(3)
 for i in range(10):
     my_die.roll_die()

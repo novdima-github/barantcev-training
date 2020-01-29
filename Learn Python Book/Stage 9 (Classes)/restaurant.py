@@ -116,6 +116,7 @@ jake.show_login_attempts()
 my_stand = IceCreamStand('Stand_1', 'Minsk')
 print(my_stand.flavors)
 my_stand.show_icecreams()
+
 admin = Admin('Igor', 'Ivanov', 23)
 admin.show_priviliges()
 
